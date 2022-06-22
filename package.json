@@ -1,6 +1,6 @@
 {
   "name": "insomnia-plugin-unleashed-api-auth-signature",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "The Unleashed API Auth Signature plugin creates an unleashed specific api call HMAC-SHA256 signature, using your API key as the secret key.",
   "main": "index.js",
   "scripts": {
