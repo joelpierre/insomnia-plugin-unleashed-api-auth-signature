@@ -13,5 +13,8 @@
     "unlisted": false
   },
   "author": "Joel Pierre <jpp@jppdesigns.co.uk>",
-  "license": "ISC"
+  "license": "ISC",
+  "files": [
+    "index.js"
+  ]
 }
