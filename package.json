@@ -52,7 +52,7 @@
   },
   "license": "MIT",
   "files": [
-    "dist/src/index.js",
+    "index.js",
     "icon.png"
   ],
   "np": {
