@@ -22,7 +22,7 @@
     "moduleResolution": "node",
     "skipLibCheck": true,
     "composite": true,
-    "declaration": false,
+    "declaration": true,
     "typeRoots": ["./node_modules/@types"]
   },
   "exclude": [
@@ -30,6 +30,7 @@
     "node_modules",
     "__tests__/**/*",
     "__mocks__/**/*",
-    "__test__/**/*"
+    "__test__/**/*",
+    "index.d.ts"
   ]
 }

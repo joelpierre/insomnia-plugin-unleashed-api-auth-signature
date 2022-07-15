@@ -1,13 +1,10 @@
 import * as crypto from 'crypto';
+import { IContext, INameValue } from './types';
 
-const settings = { key: '' };
+const AUTH_SIGNATURE_HEADER = 'api-auth-signature';
+const SETTINGS = { key: '' };
 
-interface IQueryParam {
-  name: string;
-  value: string;
-}
-
-const queryParamsToString = (params: IQueryParam[] = []) => {
+const queryParamsToString = (params: INameValue[] = []) => {
   return params.reduce((acc, { name, value }) => {
     if (!name || !value) {
       return acc;
@@ -16,12 +13,12 @@ const queryParamsToString = (params: IQueryParam[] = []) => {
   }, '');
 };
 
-function createSignature(queryParams) {
+const createSignature = (queryParamsAsString: string) => {
   return crypto
-    .createHmac('sha256', settings.key)
-    .update(queryParams, 'utf8')
+    .createHmac('sha256', SETTINGS.key)
+    .update(queryParamsAsString, 'utf8')
     .digest('base64');
-}
+};
 
 module.exports = {
   templateTags: [
@@ -42,7 +39,7 @@ module.exports = {
         },
       ],
       run: (context, key = '', queryParams = '') => {
-        settings.key = key;
+        SETTINGS.key = key;
         return createSignature(
           queryParamsToString(queryParams ? JSON.parse(queryParams) : [])
         );
@@ -50,13 +47,19 @@ module.exports = {
     },
   ],
   requestHooks: [
-    (context) => {
-      context.request.setHeader(
-        'api-auth-signature',
-        createSignature(
-          queryParamsToString(context.request.getParameters() || [])
-        )
-      );
+    (context: IContext) => {
+      const hasSignatureHeader = context.request
+        .getHeaders()
+        .some((header) => header.name === AUTH_SIGNATURE_HEADER);
+
+      if (hasSignatureHeader) {
+        context.request.setHeader(
+          AUTH_SIGNATURE_HEADER,
+          createSignature(
+            queryParamsToString(context.request.getParameters() || [])
+          )
+        );
+      }
     },
   ],
 };

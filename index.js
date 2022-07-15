@@ -21,11 +21,16 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+define("src/types", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+});
 define("src/index", ["require", "exports", "crypto"], function (require, exports, crypto) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     crypto = __importStar(crypto);
-    const settings = { key: '' };
+    const AUTH_SIGNATURE_HEADER = 'api-auth-signature';
+    const SETTINGS = { key: '' };
     const queryParamsToString = (params = []) => {
         return params.reduce((acc, { name, value }) => {
             if (!name || !value) {
@@ -34,12 +39,12 @@ define("src/index", ["require", "exports", "crypto"], function (require, exports
             return `${acc || ''}${acc ? '&' : ''}${name}=${value}`;
         }, '');
     };
-    function createSignature(queryParams) {
+    const createSignature = (queryParamsAsString) => {
         return crypto
-            .createHmac('sha256', settings.key)
-            .update(queryParams, 'utf8')
+            .createHmac('sha256', SETTINGS.key)
+            .update(queryParamsAsString, 'utf8')
             .digest('base64');
-    }
+    };
     module.exports = {
         templateTags: [
             {
@@ -58,14 +63,19 @@ define("src/index", ["require", "exports", "crypto"], function (require, exports
                     },
                 ],
                 run: (context, key = '', queryParams = '') => {
-                    settings.key = key;
+                    SETTINGS.key = key;
                     return createSignature(queryParamsToString(queryParams ? JSON.parse(queryParams) : []));
                 },
             },
         ],
         requestHooks: [
             (context) => {
-                context.request.setHeader('api-auth-signature', createSignature(queryParamsToString(context.request.getParameters() || [])));
+                const hasSignatureHeader = context.request
+                    .getHeaders()
+                    .some((header) => header.name === AUTH_SIGNATURE_HEADER);
+                if (hasSignatureHeader) {
+                    context.request.setHeader(AUTH_SIGNATURE_HEADER, createSignature(queryParamsToString(context.request.getParameters() || [])));
+                }
             },
         ],
     };
