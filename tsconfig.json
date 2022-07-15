@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "outFile": "index.js",
+    "target": "es6",
+    "lib": [
+      "es6",
+      "esnext"
+    ],
+    "sourceMap": false,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": false,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "noEmit": false,
+    "resolveJsonModule": true,
+    "isolatedModules": false,
+    "module": "AMD",
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "composite": true,
+    "declaration": true,
+    "typeRoots": [
+      "./node_modules/@types"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "__tests__/**/*",
+    "__mocks__/**/*",
+    "__test__/**/*"
+  ]
+}

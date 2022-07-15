@@ -1,0 +1,16 @@
+node_modules
+
+.webpack
+.webpackCache
+dist
+build
+
+coverage
+testCoverage
+storybook-static
+
+serverless.yml
+
+**/src/shared/i18n/*
+
+**/*.md

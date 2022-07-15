@@ -1,0 +1,107 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "import",
+    "unused-imports"
+  ],
+  "ignorePatterns": [
+    ".eslintrc.json",
+    "config/*",
+    "testCoverage/*",
+    "middleware/*",
+    "build/*",
+    "lambdas/*",
+    "next.config.js",
+    "__mocks__/**/*",
+    "src/**/__mocks__/*",
+    "src/**/*.stories.*",
+    "jest.config.js",
+    "package.json",
+    "package-lock.json",
+    "storybook-static/*",
+    "next-env.d.ts",
+    "*.config.js",
+    "*.config.json",
+    "reports/*",
+    "public/mockServiceWorker.js"
+  ],
+  "rules": {
+    "curly": "error",
+    "import/extensions": 0,
+    "global-require": [
+      0
+    ],
+    "no-console": [
+      "error",
+      {
+        "allow": [
+          "warn",
+          "error",
+          "info"
+        ]
+      }
+    ],
+    "no-var": "error",
+    "radix": "error",
+    "semi": "error",
+    "quotes": [
+      "error",
+      "single",
+      {
+        "avoidEscape": true,
+        "allowTemplateLiterals": true
+      }
+    ],
+    "eqeqeq": [
+      "error",
+      "always",
+      {
+        "null": "ignore"
+      }
+    ],
+    "prefer-arrow-callback": 1,
+    "default-case": "warn",
+    "no-trailing-spaces": 1,
+    "jsx-quotes": [
+      "error",
+      "prefer-double"
+    ],
+    "max-len": [
+      "error",
+      {
+        "code": 120,
+        "tabWidth": 2,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true,
+        "ignoreComments": true,
+        "ignoreTrailingComments": true,
+        "ignoreUrls": true
+      }
+    ],
+    "no-bitwise": 2,
+    "no-multiple-empty-lines": 2,
+    "no-shadow": "off",
+    "no-debugger": 1,
+    "no-duplicate-imports": "error",
+    "no-empty": "error",
+    "no-eval": "error",
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "ignoreRestSiblings": true
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "src/**/*.{test,spec}.*"
+      ],
+      "rules": {
+        "@typescript-eslint/no-non-null-assertion": 0
+      }
+    }
+  ]
+}
