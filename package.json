@@ -18,7 +18,8 @@
     "build": "tsc -b && cp dist/src/index.js ./index.js",
     "prettier": "prettier --write --ignore-path .prettierignore .",
     "lint": "prettier --check --ignore-path .prettierignore . && eslint --cache",
-    "lint:fix": "prettier --write --ignore-path .prettierignore . && yarn eslint --cache --fix"
+    "lint:fix": "prettier --write --ignore-path .prettierignore . && yarn eslint --cache --fix",
+    "release": "yarn lint:fix && yarn prettier && yarn build && npx np"
   },
   "insomnia": {
     "name": "unleashed-api-auth-signature",
