@@ -2,10 +2,7 @@
   "compilerOptions": {
     "outFile": "index.js",
     "target": "es6",
-    "lib": [
-      "es6",
-      "esnext"
-    ],
+    "lib": ["es6", "esnext"],
     "sourceMap": false,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -25,12 +22,11 @@
     "moduleResolution": "node",
     "skipLibCheck": true,
     "composite": true,
-    "declaration": true,
-    "typeRoots": [
-      "./node_modules/@types"
-    ]
+    "declaration": false,
+    "typeRoots": ["./node_modules/@types"]
   },
   "exclude": [
+    "index.js",
     "node_modules",
     "__tests__/**/*",
     "__mocks__/**/*",

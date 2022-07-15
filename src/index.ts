@@ -2,7 +2,12 @@ import * as crypto from 'crypto';
 
 const settings = { key: '' };
 
-const queryParamsToString = (params = []) => {
+interface IQueryParam {
+  name: string;
+  value: string;
+}
+
+const queryParamsToString = (params: IQueryParam[] = []) => {
   return params.reduce((acc, { name, value }) => {
     if (!name || !value) {
       return acc;

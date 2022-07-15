@@ -1,9 +1,6 @@
 {
   "parser": "@typescript-eslint/parser",
-  "plugins": [
-    "import",
-    "unused-imports"
-  ],
+  "plugins": ["import", "unused-imports"],
   "ignorePatterns": [
     ".eslintrc.json",
     "config/*",
@@ -28,17 +25,11 @@
   "rules": {
     "curly": "error",
     "import/extensions": 0,
-    "global-require": [
-      0
-    ],
+    "global-require": [0],
     "no-console": [
       "error",
       {
-        "allow": [
-          "warn",
-          "error",
-          "info"
-        ]
+        "allow": ["warn", "error", "info"]
       }
     ],
     "no-var": "error",
@@ -62,10 +53,7 @@
     "prefer-arrow-callback": 1,
     "default-case": "warn",
     "no-trailing-spaces": 1,
-    "jsx-quotes": [
-      "error",
-      "prefer-double"
-    ],
+    "jsx-quotes": ["error", "prefer-double"],
     "max-len": [
       "error",
       {
@@ -96,9 +84,7 @@
   },
   "overrides": [
     {
-      "files": [
-        "src/**/*.{test,spec}.*"
-      ],
+      "files": ["src/**/*.{test,spec}.*"],
       "rules": {
         "@typescript-eslint/no-non-null-assertion": 0
       }

@@ -21,7 +21,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-define("index", ["require", "exports", "crypto"], function (require, exports, crypto) {
+define("src/index", ["require", "exports", "crypto"], function (require, exports, crypto) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     crypto = __importStar(crypto);
