@@ -1,6 +1,6 @@
 {
   "name": "insomnia-plugin-unleashed-api-auth-signature",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "The Unleashed API Auth Signature plugin creates an unleashed specific api call HMAC-SHA256 signature, using your API key as the secret key.",
   "main": "index.js",
   "scripts": {
@@ -18,6 +18,13 @@
     },
     "unlisted": false
   },
+  "keywords": [
+    "insomnia",
+    "plugin",
+    "unleashed",
+    "hmac-sha256",
+    "base64"
+  ],
   "devDependencies": {
     "typescript": "4.6.3",
     "prettier": "2.7.1",
@@ -32,7 +39,15 @@
     "eslint-plugin-unused-imports": "2.0.0"
   },
   "author": "Joel Pierre <jpp@jppdesigns.co.uk>",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joelpierre/insomnia-plugin-unleashed-api-auth-signature.git"
+  },
+  "bugs": {
+    "url": "https://github.com/joelpierre/insomnia-plugin-unleashed-api-auth-signature/issues"
+  },
+  "homepage": "https://github.com/joelpierre/insomnia-plugin-unleashed-api-auth-signature",
+  "license": "MIT",
   "files": [
     "index.js",
     "icon.png"
