@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outFile": "index.js",
+    "outDir": "./dist",
     "target": "es6",
     "lib": ["es6", "esnext"],
     "sourceMap": false,
@@ -18,7 +18,7 @@
     "noEmit": false,
     "resolveJsonModule": true,
     "isolatedModules": false,
-    "module": "AMD",
+    "module": "commonjs",
     "moduleResolution": "node",
     "skipLibCheck": true,
     "composite": true,
@@ -31,6 +31,6 @@
     "__tests__/**/*",
     "__mocks__/**/*",
     "__test__/**/*",
-    "index.d.ts"
+    "dist"
   ]
 }
